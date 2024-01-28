@@ -7,10 +7,37 @@ public class Test
 {
     public static void main(String[] args)
     {
-        String s = "3[z]2[2[y]pq4[2[jk]e1[f]]]ef";
-//        String s = "sd2[f2[e]g]i";
+//        String s = "3[z]2[2[y]pq4[2[jk]e1[f]]]ef";
+////        String s = "sd2[f2[e]g]i";
+//
+//        System.out.println(decodeString2(s));
+        System.out.println(kInversePairs(120, 120));
 
-        System.out.println(decodeString2(s));
+    }
+
+    public static int kInversePairs(int n, int k) {
+        int MOD = 1000000007;
+        long dp[][] = new long[n+1][k+1];
+        dp[0][0]=1;
+
+        for(int i=1;i<=n;i++)
+        {
+
+            dp[i][0]=1;
+            for(int j=1;j<=k;j++)
+            {
+                dp[i][j]=(int)(dp[i-1][j]%MOD+dp[i][j-1])%MOD;
+
+                if(j>=i)
+                    dp[i][j]=(int)(dp[i][j]%MOD-dp[i-1][j-i]%MOD)%MOD;
+            }
+        }
+        for(long arr[] : dp)
+        {
+            System.out.println(Arrays.toString(arr));
+        }
+
+        return (int)dp[n][k]%MOD;
     }
 //   zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef
 //   zzzyypqjkjkefjkjkefjkjkefjkjkefyypqjkjkefjkjkefjkjkefjkjkefef
