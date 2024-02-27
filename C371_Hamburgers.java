@@ -38,19 +38,19 @@ public class C371_Hamburgers
         {
             long mid = start + (end-start)/2;
 
-            System.out.println("Mid="+mid);
+//            System.out.println("Mid="+mid);
 
             long currB = rb*mid;
             long currS = rs*mid;
             long currC = rc*mid;
 
-            System.out.println("currB="+currB+", currS="+currS+", currC="+currC);
+//            System.out.println("currB="+currB+", currS="+currS+", currC="+currC);
 
             long costB = rb==0 ? 0 : currB >= nb ? (currB-nb)*pb : 0;
             long costS = rs==0 ? 0 : currS >= ns ? (currS-ns)*ps : 0;
             long costC = rc==0 ? 0 : currC >= nc ? (currC-nc)*pc : 0;
 
-            System.out.println("costB="+costB+", costS="+costS+", costC="+costC);
+//            System.out.println("costB="+costB+", costS="+costS+", costC="+costC);
 
             if(costS+costB+costC <= money)
             {
@@ -59,7 +59,7 @@ public class C371_Hamburgers
             else
                 end=mid-1;
 
-            System.out.println("Start="+start+", End="+end);
+//            System.out.println("Start="+start+", End="+end);
         }
 
         System.out.println(end);
